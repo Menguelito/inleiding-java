@@ -11,7 +11,12 @@ public class Tekenen extends Applet{
     public void paint(Graphics g) {
         setBackground(Color.blue);
         g.setColor(Color.cyan);
-        g.drawPolygon(new int[] {15, 35, 60}, new int [] {100, 50, 100}, 3);
+        int. x[] = {150,300,225};
+        int. y[] = {150,150,25};
+        g.drawRect(150,150,150,200);
+        g.drawRect(200,200,50,150);
+        g.drawOval(200,75,50,50);
+        g.drawPolygon(x,y,3);
 
         
     }
