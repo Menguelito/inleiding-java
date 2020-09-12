@@ -15,4 +15,12 @@ public class Huis extends Applet {
         g.drawLine(200, 50, 150, 150);
 
     }
+
+    public static void drawFloors(Graphics g){
+
+        g.setColor(Color.blue);
+        g.drawRect(200,200,300,100);
+
+
+    }
 }
