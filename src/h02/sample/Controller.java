@@ -13,7 +13,7 @@ public class Controller extends Applet {
         g.setColor(Color.yellow);
         g.drawString("Menguelito Mangnoesing", 50, 60 );
         g.setColor(Color.blue);
-        g.drawRect(200,200,300,100);
+        g.fillRect(200,200,300,100);
         g.drawRect(200,300,300,100);
 
     }
