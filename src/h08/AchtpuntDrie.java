@@ -1,30 +1,55 @@
 package h08;
 import  java.awt.*;
 import java.applet.*;
-import  java.awt.event.*;
 
 public class AchtpuntDrie extends Applet{
-    TextField tekstvak;
-    Label label;
-    double getal;
+    TextField artiekel, btwperc;
+    Button bereken;
+    double prijs,intbtwperc,btwwaarde,totaal;
+    String strPrijs,strBtw,strTotaal,strBtwwaarde;
+    Double hulp;
 
-    public void init() {
-        tekstvak = new TextField("", 20);
-        label = new Label("Type een getal");
-        tekstvak.addActionListener( new TekstvakListener() );
-        add(label);
-        add(tekstvak);
+    public void init()
+    {
+        artiekel=new TextField(10);
+        btwperc=new TextField(6);
+        bereken=new Button("Bereken");
+        add(artiekel);
+        add(btwperc);
+        add(bereken);
+        artiekel.setText("0");
+        btwperc.setText("19");
+        bereken();
     }
 
-    public void paint(Graphics g) {
-        g.drawString("Het getal is " + getal, 50, 60 );
+    public void bereken()
+    {
+        strPrijs=artiekel.getText();
+        strBtw=btwperc.getText();
+        hulp=Double.valueOf(strPrijs);
+        prijs=hulp.doubleValue();
+        hulp=Double.valueOf(strBtw);
+        intbtwperc=hulp.doubleValue();
+        btwwaarde=(prijs/100)*intbtwperc;
+        totaal=prijs+btwwaarde;
+        strBtwwaarde=String.valueOf(btwwaarde);
+        strTotaal=String.valueOf(totaal);
     }
 
-    class TekstvakListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            String s = tekstvak.getText();
-            getal = Double.parseDouble( s );
+    public void paint( Graphics g )
+    {
+        g.drawString("BTW Bedrag is: "+strBtwwaarde,20,80);
+        g.drawString("Prijs incl. "+strBtw+"% BTW: "+strTotaal,20,100);
+    }
+
+    public boolean action( Event e, Object o)
+    {
+        if ((e.target==bereken) || (e.target==artiekel))
+        {
+            bereken();
             repaint();
+            return true;
         }
+        return false;
     }
 }
