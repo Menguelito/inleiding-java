@@ -8,7 +8,7 @@ public class invoeren extends Applet {
     TextField tekstvak;
     String tekst1;
     String tekst2;
-    double uit,in;
+    double laag,hoog;
 
 
 
@@ -31,14 +31,14 @@ public class invoeren extends Applet {
     class TekstvakListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             String s = tekstvak.getText();
-            in = Double.parseDouble(s);
-            if (in > uit){
-                uit = in;
-                tekst1 = String.valueOf(in);
+            hoog = Double.parseDouble(s);
+            if (hoog > laag){
+                laag = hoog;
+                tekst1 = String.valueOf(hoog);
 
             }
             else {
-                tekst2 = String.valueOf(in);
+                tekst2 = String.valueOf(hoog);
 
             }
             repaint();
