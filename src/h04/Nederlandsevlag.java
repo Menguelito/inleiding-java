@@ -1,6 +1,6 @@
 package h04;
 
-import h02.Applet;
+import java.applet.*;
 import java.awt.*;
 
 public class Nederlandsevlag extends Applet {
